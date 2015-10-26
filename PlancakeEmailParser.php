@@ -412,7 +412,7 @@ class PlancakeEmailParser
         }
 
         // there could be more than one boundary
-        preg_match_all('!boundary=(.*)$!mi', $this->emailRawContent, $matches);
+        preg_match_all('!boundary=(.*?)[;$]!mi', $this->emailRawContent, $matches);
         $boundariesRaw = $matches[1];
         $boundaries = array();
         foreach ($boundariesRaw as $i => $v) {
