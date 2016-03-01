@@ -3,8 +3,18 @@
 // run this as:
 // php run_tests.php
 
-function printBarrier() { echo "\r\n\r\n\r\n"; }
-function printnl($message) { echo "$message\r\n"; }
+
+// added a clearer barrier
+function printBarrier()
+{
+    echo "\r\n";
+    echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+    echo "\r\n";
+}
+function printnl($message)
+{
+    echo "$message\r\n";
+}
 
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "PlancakeEmailParser.php");
 

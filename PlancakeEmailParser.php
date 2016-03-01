@@ -433,7 +433,7 @@ class PlancakeEmailParser
                 if (preg_match('/charset=(.*)/i', $line, $matches)) {
                     $charset = strtoupper(trim($matches[1], '"'));
                 }
-            } else if ($detectedContentType && $waitingForContentStart) {
+            } elseif ($detectedContentType && $waitingForContentStart) {
                 if (preg_match('/charset=(.*)/i', $line, $matches)) {
                     $charset = strtoupper(trim($matches[1], '"'));
                 }
@@ -467,7 +467,7 @@ class PlancakeEmailParser
 
         if ($contentTransferEncoding == 'base64') {
             $body = base64_decode($body);
-        } else if ($contentTransferEncoding == 'quoted-printable') {
+        } elseif ($contentTransferEncoding == 'quoted-printable') {
             $body = quoted_printable_decode($body);
         }
 
