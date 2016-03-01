@@ -413,10 +413,15 @@ class PlancakeEmailParser
 
         // there could be more than one boundary
         preg_match_all('!boundary=(.*)$!mi', $this->emailRawContent, $matches);
-        $boundaries = $matches[1];
-        // sometimes boundaries are delimited by quotes - we want to remove them
-        foreach ($boundaries as $i => $v) {
-            $boundaries[$i] = str_replace(array("'", '"'), '', $v);
+        $boundariesRaw = $matches[1];
+        $boundaries = array();
+        foreach ($boundariesRaw as $i => $v) {
+            // sometimes boundaries are delimited by quotes - we want to remove them
+            $tempboundary = str_replace(array("'", '"'), '', $v);
+            // actual boundary lines start with --
+            $boundaries[] = '--' . $tempboundary;
+            // or start and end with --
+            $boundaries[] = '--' . $tempboundary . '--';
         }
 
         foreach ($this->rawBodyLines as $line) {
@@ -442,9 +447,8 @@ class PlancakeEmailParser
                 }
             } else {  // ($detectedContentType && !$waitingForContentStart)
                 // collecting the actual content until we find the delimiter
-                // if the delimited is AAAAA, the line will be --AAAAA  - that's why we use substr
                 if (is_array($boundaries)) {
-                    if (in_array(substr($line, 2), $boundaries)) {  // found the delimiter
+                    if (in_array($line, $boundaries)) {  // found the delimiter
                         break;
                     }
                 }
