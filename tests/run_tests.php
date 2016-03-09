@@ -4,20 +4,29 @@
 // php run_tests.php
 
 
-// added a clear barrier between messages
+/**
+ * Used to add a clear barrier between messages
+ */
 function printBarrier()
 {
     echo "\r\n";
-    echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+    echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\r\n";
     echo "\r\n";
 }
-// add in-message barrier
+
+/**
+ * Used to add a barrier between different parts of the same message
+ */
 function printInMessageBarrier()
 {
     echo "\r\n";
-    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\r\n";
     echo "\r\n";
 }
+
+/**
+ * @param string $message
+ */
 function printnl($message)
 {
     echo "$message\r\n";
@@ -36,12 +45,12 @@ printBarrier();
 foreach ($emails as $email) {
     printnl("Email $email");
     $emailParser = new PlancakeEmailParser(file_get_contents($email));
-    printnl("subject: " . $emailParser->getSubject());
+    printnl("**Subject:**\r\n" . $emailParser->getSubject());
     printInMessageBarrier();
-    printnl("body: " . $emailParser->getBody());
+    printnl("**Body:**\r\n" . $emailParser->getBody());
     printInMessageBarrier();
-    printnl("plain body: " . $emailParser->getPlainBody());
+    printnl("**Plain body:**\r\n" . $emailParser->getPlainBody());
     printInMessageBarrier();
-    printnl("html body: " . $emailParser->getHTMLBody());
+    printnl("**HTML body:**\r\n" . $emailParser->getHTMLBody());
     printBarrier();
 }
