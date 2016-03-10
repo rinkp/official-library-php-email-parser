@@ -1,0 +1,13 @@
+CHANGELOG
+
+v3.0.0 - 2016-03-10
+-------------------
+
+Third major release. Highlights:
+
+- Change: Don't return message part boundaries when retrieving HTML or Text
+  bodies in messages 
+- Fix: Dependency on mbstring PHP extension has been made explicit
+- Fix: Account for additional info on the line containing the boundary
+  identifier
+- Improvement: Test runner has been cleaned up a bit
