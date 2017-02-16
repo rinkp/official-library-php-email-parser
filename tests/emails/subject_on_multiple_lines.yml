@@ -7,3 +7,4 @@ to:
     email: bounce@domain-bounce.it
 cc: []
 bcc: []
+sender: []
