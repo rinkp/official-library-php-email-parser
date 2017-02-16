@@ -5,3 +5,5 @@ from:
 to:
   - name: Inbox_danocch.it_2063@examplebox.com
     email: Inbox_danocch.it_2063@examplebox.com
+cc: []
+bcc: []

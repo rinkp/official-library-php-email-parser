@@ -5,3 +5,5 @@ from:
 to:
   - name: ''
     email: dan@test.com
+cc: []
+bcc: []
