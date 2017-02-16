@@ -8,7 +8,11 @@ to:
 cc: []
 bcc: []
 sender: []
-plainbody: 'Da: info@domain.it
-           Oggetto: Grazie!!!
+plainbody: |
 
-           Nome Cognome'
+
+
+            Da: info@domain.it
+            Oggetto: Grazie!!!
+
+            Nome Cognome

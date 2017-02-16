@@ -412,16 +412,14 @@ class PlancakeEmailParser
         }
 
         // there could be more than one boundary
-        preg_match_all('!boundary=(.*?)[;$]!mi', $this->emailRawContent, $matches);
+        preg_match_all('/boundary=(?:|")([a-zA-Z0-9\(\)_\/+-]+)(?:|")(?:$|;)/mi', $this->emailRawContent, $matches);
         $boundariesRaw = $matches[1];
         $boundaries = array();
         foreach ($boundariesRaw as $i => $v) {
-            // sometimes boundaries are delimited by quotes - we want to remove them
-            $tempboundary = str_replace(array("'", '"'), '', $v);
             // actual boundary lines start with --
-            $boundaries[] = '--' . $tempboundary;
+            $boundaries[] = '--' . $v;
             // or start and end with --
-            $boundaries[] = '--' . $tempboundary . '--';
+            $boundaries[] = '--' . $v . '--';
         }
 
         foreach ($this->rawBodyLines as $line) {
