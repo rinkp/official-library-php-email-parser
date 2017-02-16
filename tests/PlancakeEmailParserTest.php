@@ -31,4 +31,18 @@ class PlancakeEmailParserTest extends TestCase {
       $this->assertEquals($answers['from'], $email->getFrom());
     }
   }
+
+  public function testTo() {
+    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+
+      $answerFile = str_replace('.txt', '.yml', $testFile);
+      $answers = \Symfony\Component\Yaml\Yaml::parse(
+        file_get_contents($answerFile)
+      );
+
+      $email = new PlancakeEmailParser(file_get_contents($testFile));
+
+      $this->assertEquals($answers['to'], $email->getTo());
+    }
+  }
 }

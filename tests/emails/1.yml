@@ -2,3 +2,6 @@ subject: this is a test
 from:
   - name: Dan @ Test.com
     email: dan@test.com
+to:
+  - name: 'Daniele '
+    email: danielet@test.com

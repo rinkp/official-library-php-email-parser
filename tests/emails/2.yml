@@ -2,3 +2,6 @@ subject: 'ããã¯ãã¹ãã§ã'
 from:
   - name: Dan
     email: dan@test.com
+to:
+  - name: 'Daniele'
+    email: daniele@test.com
