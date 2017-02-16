@@ -8,3 +8,8 @@ to:
 cc: []
 bcc: []
 sender: []
+plainbody: This is a nonesense test-email to check Plancake Mail to Inbox feature.
+           All Polish diacritics included ;-) tag also included for additional tests.
+           It should look like in the picture attached.
+           Best regards
+           Pawel
