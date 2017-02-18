@@ -1,104 +1,112 @@
 <?php
-declare(strict_types = 1);
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Yaml\Yaml;
 
-class PlancakeEmailParserTest extends TestCase {
+class PlancakeEmailParserTest extends TestCase
+{
 
-  public function testSubject() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testSubject()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['subject'], $email->getSubject());
+            $this->assertEquals($answers['subject'], $email->getSubject());
+        }
     }
-  }
 
-  public function testFrom() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testFrom()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['from'], $email->getFrom());
+            $this->assertEquals($answers['from'], $email->getFrom());
+        }
     }
-  }
 
-  public function testTo() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testTo()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['to'], $email->getTo());
+            $this->assertEquals($answers['to'], $email->getTo());
+        }
     }
-  }
 
-  public function testCc() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testCc()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['cc'], $email->getCc());
+            $this->assertEquals($answers['cc'], $email->getCc());
+        }
     }
-  }
 
-  public function testBcc() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testBcc()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['bcc'], $email->getBcc());
+            $this->assertEquals($answers['bcc'], $email->getBcc());
+        }
     }
-  }
 
-  public function testSender() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testSender()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['sender'], $email->getSender());
+            $this->assertEquals($answers['sender'], $email->getSender());
+        }
     }
-  }
 
-  public function testPlainBody() {
-    foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
+    public function testPlainBody()
+    {
+        foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
 
-      $answerFile = str_replace('.txt', '.yml', $testFile);
-      $answers = \Symfony\Component\Yaml\Yaml::parse(
-        file_get_contents($answerFile)
-      );
+            $answerFile = str_replace('.txt', '.yml', $testFile);
+            $answers = Yaml::parse(
+                file_get_contents($answerFile)
+            );
 
-      $email = new PlancakeEmailParser(file_get_contents($testFile));
+            $email = new PlancakeEmailParser(file_get_contents($testFile));
 
-      $this->assertEquals($answers['plainbody'], $email->getPlainBody());
+            $this->assertEquals($answers['plainbody'], $email->getPlainBody());
+        }
     }
-  }
 }
