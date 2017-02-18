@@ -411,7 +411,7 @@ class PlancakeEmailParser
             $contentTypeRegex = '/^Content-Type: ?text\/plain/i';
         }
 
-        // there could be more than one boundary
+        // there could be more than one boundary. This also skips the quotes if they are included.
         preg_match_all('/boundary=(?:|")([a-zA-Z0-9\(\)_\/+-]+)(?:|")(?:$|;)/mi', $this->emailRawContent, $matches);
         $boundariesRaw = $matches[1];
         $boundaries = array();
