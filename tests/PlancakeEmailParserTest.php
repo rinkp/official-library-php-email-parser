@@ -1,18 +1,15 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 
 class PlancakeEmailParserTest extends TestCase
 {
-
     public function testSubject()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -23,11 +20,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testFrom()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -38,11 +32,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testTo()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -53,11 +44,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testCc()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -68,11 +56,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testBcc()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -83,11 +68,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testSender()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
@@ -98,11 +80,8 @@ class PlancakeEmailParserTest extends TestCase
     public function testPlainBody()
     {
         foreach (glob(__DIR__ . '/emails/*.txt') as $testFile) {
-
             $answerFile = str_replace('.txt', '.yml', $testFile);
-            $answers = Yaml::parse(
-                file_get_contents($answerFile)
-            );
+            $answers = Yaml::parse(file_get_contents($answerFile));
 
             $email = new PlancakeEmailParser(file_get_contents($testFile));
 
