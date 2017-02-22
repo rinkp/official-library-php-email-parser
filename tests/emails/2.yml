@@ -1,0 +1,11 @@
+subject: 'ããã¯ãã¹ãã§ã'
+from:
+  - name: Dan
+    email: dan@test.com
+to:
+  - name: 'Daniele'
+    email: daniele@test.com
+cc: []
+bcc: []
+sender: []
+plainbody: 'それは作品を期待'
