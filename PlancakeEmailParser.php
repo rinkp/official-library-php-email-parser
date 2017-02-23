@@ -33,8 +33,8 @@
  * Obviously it can't extract the bcc header because it doesn't appear in the content
  * of the email.
  *
- * N.B.: if you deal with non-English languages, we recommend you install the IMAP PHP extension:
- * the Plancake PHP Email Parser will detect it and used it automatically for better results.
+ * N.B.: As of v4, the IMAP PHP extension is now compulsory to ensure consistent results
+ * across all environments.
  *
  * For more info, check:
  * https://github.com/djmattyg007/official-library-php-email-parser
@@ -46,11 +46,6 @@ class PlancakeEmailParser
 {
     const PLAINTEXT = 1;
     const HTML = 2;
-
-    /**
-     * @var bool
-     */
-    protected $isImapExtensionAvailable = false;
 
     /**
      * @var string
@@ -100,10 +95,6 @@ class PlancakeEmailParser
         $this->debug = $debug;
 
         $this->extractHeadersAndRawBody();
-
-        if (function_exists('imap_open')) {
-            $this->isImapExtensionAvailable = true;
-        }
     }
 
     /**
@@ -183,13 +174,9 @@ class PlancakeEmailParser
 
         $ret = '';
 
-        if ($this->isImapExtensionAvailable) {
-            foreach (imap_mime_header_decode($this->rawFields['subject']) as $h) { // subject can span into several lines
-                $charset = ($h->charset == 'default') ? 'US-ASCII' : $h->charset;
-                $ret .= iconv($charset, "UTF-8//TRANSLIT", $h->text);
-            }
-        } else {
-            $ret = utf8_encode(iconv_mime_decode($this->rawFields['subject']));
+        foreach (imap_mime_header_decode($this->rawFields['subject']) as $h) { // subject can span into several lines
+            $charset = ($h->charset == 'default') ? 'US-ASCII' : $h->charset;
+            $ret .= iconv($charset, "UTF-8//TRANSLIT", $h->text);
         }
 
         return $ret;
