@@ -36,7 +36,7 @@ function printnl($message)
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "PlancakeEmailParser.php");
 
 // fetch all sample emails
-$emails = glob(__DIR__ . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "*");
+$emails = glob(__DIR__ . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "*.txt");
 
 // start output with a barrier
 printBarrier();
