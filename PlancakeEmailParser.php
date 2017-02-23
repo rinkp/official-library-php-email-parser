@@ -22,6 +22,9 @@
 *
 * Valuable contributions by:
 * - Chris
+* - Martijn Braam
+* - ibrahimlawal
+* - sergeypayu
 *
 * **************************************************************************************/
 
@@ -34,9 +37,10 @@
  * the Plancake PHP Email Parser will detect it and used it automatically for better results.
  *
  * For more info, check:
- * https://github.com/plancake/official-library-php-email-parser
+ * https://github.com/djmattyg007/official-library-php-email-parser
  *
  * @author dan
+ * @author djmattyg007
  */
 class PlancakeEmailParser
 {
