@@ -22,7 +22,7 @@
 *
 * Valuable contributions by:
 * - Chris
-* - Martijn Braam
+* - Martijn Braam, BrixIT
 * - ibrahimlawal
 * - sergeypayu
 *

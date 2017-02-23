@@ -1,13 +1,23 @@
 CHANGELOG
 
+v4.0.0 - 2017-02-24
+-------------------
+
+Fourth major release. Highlights:
+
+- Fixes for message part boundary detection (thanks Martijn, BrixIT)
+- Addition of proper PHPUnit tests (thanks Martijn, BrixIT)
+- IMAP PHP extension is now required to ensure consistent test results
+
 v3.0.0 - 2016-03-10
 -------------------
 
 Third major release. Highlights:
 
 - Change: Don't return message part boundaries when retrieving HTML or Text
-  bodies in messages 
+  bodies in messages (thanks ibrahimlawal)
 - Fix: Dependency on mbstring PHP extension has been made explicit
-- Fix: Account for additional info on the line containing the boundary
+- Fix: Account for additional info on the line containing the boundary (thanks
+  sergeypayu)
   identifier
 - Improvement: Test runner has been cleaned up a bit

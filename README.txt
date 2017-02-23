@@ -2,7 +2,10 @@
 
 This is a fork of the original Plancake email parser, with various pull
 requests submitted to the original repository merged in, as well as other
-additional features.
+additional features, some submitted directly to my fork.
+
+In contrast to the original, this fork now has hard dependencies on the
+mbstring and IMAP PHP extensions.
 
 The original readme is below.
 
