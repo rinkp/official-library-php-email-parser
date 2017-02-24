@@ -1,5 +1,16 @@
 CHANGELOG
 
+v5.0.0 - 2017-02-25
+-------------------
+
+Fifth major release. Highlights:
+
+- Remove dependency on IMAP PHP extension (a similar function from the
+  mb_string PHP extension is now in use)
+- Start running tests automatically on Travis CI
+- Drop official support for versions of PHP prior to 5.6, as we aren't running
+  tests with these versions
+
 v4.0.0 - 2017-02-24
 -------------------
 

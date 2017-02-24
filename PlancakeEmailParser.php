@@ -3,10 +3,10 @@
 /*************************************************************************************
 * ===================================================================================*
 * Software by: Danyuki Software Limited                                              *
-* This file is part of Plancake.                                                     *
+* Maintained by: Matthew Gamble (djmattyg007)                                        *
 *                                                                                    *
-* Copyright 2009-2010-2011 by:     Danyuki Software Limited                          *
-* Support, News, Updates at:  http://www.plancake.com                                *
+* Copyright 2009-2010-2011 by: Danyuki Software Limited                              *
+* Copyright 2015-2017 by: Matthew Gamble                                             *
 * Licensed under the LGPL version 3 license.                                         *
 * Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
 **************************************************************************************
@@ -16,7 +16,7 @@
 * GNU Lesser General Public License v3.0 for more details.                           *
 *                                                                                    *
 * You should have received a copy of the GNU Lesser General Public License           *
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+* along with this program.  If not, see <https://www.gnu.org/licenses/>.             *
 *                                                                                    *
 **************************************************************************************
 *
@@ -32,9 +32,6 @@
  * Extracts the headers and the body of an email
  * Obviously it can't extract the bcc header because it doesn't appear in the content
  * of the email.
- *
- * N.B.: As of v4, the IMAP PHP extension is now compulsory to ensure consistent results
- * across all environments.
  *
  * For more info, check:
  * https://github.com/djmattyg007/official-library-php-email-parser
