@@ -172,14 +172,7 @@ class PlancakeEmailParser
             return null;
         }
 
-        $ret = '';
-
-        foreach (imap_mime_header_decode($this->rawFields['subject']) as $h) { // subject can span into several lines
-            $charset = ($h->charset == 'default') ? 'US-ASCII' : $h->charset;
-            $ret .= iconv($charset, "UTF-8//TRANSLIT", $h->text);
-        }
-
-        return $ret;
+        return mb_decode_mimeheader($this->rawFields['subject']);
     }
 
     /**
